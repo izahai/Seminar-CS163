@@ -1,6 +1,6 @@
 #pragma once
 #include<vector>
-
+#include<string>
 using namespace std;
 
 using Edge = pair<int, int>;
@@ -13,12 +13,14 @@ struct Graph {
 	vector<int> low;
 	vector<int> entry;
 	vector<bool> listAP;
+	vector<Edge> listBridge;
 	vector<bool> visited;
+	vector<Edge> listEdge;
 
 	Graph(int v, int e);
 	
-	void loadArticulationPoints();
-	void dfsTarjanAP(int cur, int prv);
+	void loadTarjanAPnB();
+	void dfsTarjanAPnB(int cur, int prv);
 	
 	void loadAPNaiveDFS();
 	void naiveDFS(int src, int rmv);
@@ -29,7 +31,15 @@ struct Graph {
 	void loadAPCoutingChildDFS();
 	int childDFS(int src);
 
-	void printArticulationPoints(int choice);
+	void loadBridgeDFS();
+	void naiveBridgeDFS(int src, int from, int to);
+
+	void loadBridgeBFS();
+	void naiveBridgeBFS(int src, int from, int to);
+
+	void inputEdge();
+	void printAPnB(int choice);
 	void resetContainer();
 };	
 
+Graph inputFromFile(string filename);

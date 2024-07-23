@@ -7,13 +7,14 @@ using namespace std;
 
 int main()
 {
-    int v, e;
+    /*int v, e;
     cin >> v >> e;
-    Graph graph(v, e);
-    graph.printArticulationPoints(0);
-    graph.printArticulationPoints(1);
-    graph.printArticulationPoints(2);
-    graph.printArticulationPoints(3);
+    Graph graph(v, e);*/
+    Graph graph = inputFromFile("input2.txt");
+    graph.printAPnB(0);
+    graph.printAPnB(1);
+    graph.printAPnB(2);
+    graph.printAPnB(3);
     return 0;
 }
 
